@@ -1,0 +1,271 @@
+/* Общие стили */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    text-align: center;
+    background: url('../images/mine.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Заголовок */
+.title {
+    font-size: 3em;
+    margin-bottom: 50px; /* Увеличенный отступ снизу */
+    margin-top: 50px;   /* Увеличенный отступ сверху */
+    text-shadow: 2px 2px 5px black;
+}
+
+/* Блок уровней */
+.levels {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет переносить кнопки на следующий ряд */
+    justify-content: center;
+    gap: 30px;       /* Отступы между кнопками */
+    margin-top: 50px; /* Увеличенный отступ сверху */
+}
+
+
+.level-btn {
+    flex: 1 1 calc(20% - 20px); /* Максимум 5 кнопок в ряд */
+    max-width: 180px;           /* Ограничиваем ширину кнопки */
+    background-color: #4CAF50;
+    color: white;
+    padding: 30px 60px; /*///////////////////////////////////////*/
+    border: none;
+    border-radius: 20px;  /*///////////////////////////////////////*/
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    text-shadow: 2px 2px 5px black;
+    text-align: center;
+}
+
+.level-btn:hover {
+    transform: scale(1.1);
+    background-color: #45a049;
+}
+
+/* Блок отображения заданий */
+.challenge-display {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Отступ между элементами */
+}
+
+.hidden {
+    display: none;
+}
+
+#challenge-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+    font-size: 1.2em;
+}
+
+#challenge-list li {
+    margin: 40px 0;
+}
+
+/* Кнопки Random и Close */
+.challenge-display .buttons {
+    display: flex;
+    gap: 10px; /* Отступ между кнопками */
+    justify-content: center;
+    flex-wrap: wrap; /* На случай, если места мало */
+}
+
+.random-btn, .close-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.random-btn:hover, .close-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* Общий контейнер */
+.container {
+    position: relative;
+    display: inline-block; /* Чтобы текст и картинка обрабатывались как единое целое */
+}
+
+/* Анимация увеличения и уменьшения */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Основное изображение */
+.main-image {
+    width: auto;
+    height: 200px; /* Укажите нужный размер изображения */
+    display: block;
+}
+
+/* Общие стили */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    text-align: center;
+    background: url('../images/mine.jpg') no-repeat center center fixed;
+    background-size: cover;
+    user-select: none; /* Запрещаем выделение текста */
+}
+
+/* Запрет перетаскивания изображений */
+img {
+    pointer-events: none; /* Отключает любые взаимодействия с изображением */
+    user-select: none;    /* Запрещает выделение изображения */
+}
+
+/* Контейнер */
+.container {
+    max-width: 1200px;
+    margin-top: 100px; /* Измените это значение */
+    margin-left: 100px; /* Измените это значение */
+    padding: 20px;
+    position: relative; /* Позволяет позиционировать внутренние элементы */
+}
+
+/* Текст "Minecraft style!" */
+#animation {
+    display: block;
+    height: 10px;
+    width: auto;
+    font-family: 'Arial';
+    font-size: 60px;
+    position: absolute;
+    left: 65%;
+    top: -25%;
+    transform: translateX(150%) rotate(15deg); /* Поворот в другую сторону */
+    margin-top: 220px; /* Смещаем ниже картинки */
+    color: #f7f700;
+    text-shadow: 2px 2px 1px #3f3f00;
+    text-decoration: none;
+    pointer-events: none; /* Отключает взаимодействие с текстом */
+    user-select: none; /* Отключает выделение текста */
+    animation: pulse 2s infinite;
+}
+
+/* Анимация увеличения и уменьшения */
+@keyframes pulse {
+    0%, 100% {
+        transform: rotate(-20deg) scale(1);
+    }
+    50% {
+        transform: rotate(-20deg) scale(1.2);
+    }
+}
+
+/* Основное изображение */
+.main-image {
+    width: auto;
+    height: 200px; /* Укажите нужный размер изображения */
+    display: block;
+}
+
+/* Анимация, когда задание открыто */
+@keyframes moveAnimation {
+    0% {
+        transform: rotate(-20deg) scale(1) translateY(0); /* Изначальная позиция */
+    }
+    50% {
+        transform: rotate(-20deg) scale(1.2) translateY(-50px); /* Поднимем текст вверх */
+    }
+    100% {
+        transform: rotate(-20deg) scale(1) translateY(0); /* Возвращаем в исходное положение */
+    }
+}
+
+#animation {
+    position: absolute;
+    top: -125px;
+    left: 800px;
+    font-family: 'Arial', sans-serif;
+    font-size: 60px;
+    color: #f7f700;
+    text-shadow: 4px 4px 2px #3f3f00;
+    animation: pulse 2s infinite; /* Стандартная анимация */
+    transition: transform 0.5s ease-out; /* Плавное изменение позиции */
+}
+
+/* Когда открывается задание */
+.challenge-display.open #animation {
+    animation: moveAnimation 1s forwards; /* Запуск анимации при открытии задания */
+}
+
+/* Стили для фотографий в уровне Йога */
+.yoga-images {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Отступ между изображениями */
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Позволяет изображениям адаптироваться при уменьшении ширины экрана */
+}
+
+.yoga-images img {
+    width: 150px; /* Размер изображения */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Тень для изображения */
+    transition: transform 0.3s ease;
+}
+
+/* Стили для фотографий в уровне Йога */
+.yoga-images {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Отступ между изображениями */
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Позволяет изображениям адаптироваться при уменьшении ширины экрана */
+}
+
+.yoga-images img {
+    width: 250px; /* Размер изображения */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Тень для изображения */
+    transition: transform 0.3s ease;
+}
+
+/* Стили для случайной картинки при нажатии на кнопку Random */
+.random-image {
+    width: 250px;
+    height: 250px;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
