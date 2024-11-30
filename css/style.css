@@ -7,46 +7,55 @@ body {
     text-align: center;
     background: url('../images/mine.jpg') no-repeat center center fixed;
     background-size: cover;
+    user-select: none; /* Запрещаем выделение текста */
 }
 
+/* Запрет перетаскивания изображений */
+img {
+    pointer-events: none; /* Отключает любые взаимодействия с изображением */
+    user-select: none; /* Запрещает выделение изображения */
+}
 
-
+/* Контейнер */
 .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
+    max-width: 800px; /* Уменьшено в 2 раза */
+    margin-top: 5px; /* Уменьшено в 2 раза */
+    margin-left: auto;
+    margin-right: auto; /* Уменьшено в 2 раза */
+    padding: 10px; /* Уменьшено в 2 раза */
+    position: relative;
 }
 
 /* Заголовок */
 .title {
-    font-size: 3em;
-    margin-bottom: 50px; /* Увеличенный отступ снизу */
-    margin-top: 50px;   /* Увеличенный отступ сверху */
-    text-shadow: 2px 2px 5px black;
+    font-size: 1em; /* Уменьшено в 2 раза */
+    margin-bottom: 20px; /* Уменьшено в 2 раза */
+    margin-top: 25px; /* Уменьшено в 2 раза */
+    text-shadow: 1px 1px 2.5px black; /* Уменьшено в 2 раза */
 }
 
 /* Блок уровней */
 .levels {
     display: flex;
-    flex-wrap: wrap; /* Позволяет переносить кнопки на следующий ряд */
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;       /* Отступы между кнопками */
-    margin-top: 50px; /* Увеличенный отступ сверху */
+    gap: 15px; /* Уменьшено в 2 раза */
+    margin-top: 80px; /* Уменьшено в 2 раза */
 }
 
-
 .level-btn {
-    flex: 1 1 calc(20% - 20px); /* Максимум 5 кнопок в ряд */
-    max-width: 180px;           /* Ограничиваем ширину кнопки */
+    flex: 1 1 calc(20% - 10px); /* Максимум 5 кнопок в ряд */
+    max-width: 140px; /* Уменьшено в 2 раза */
     background-color: #4CAF50;
     color: white;
-    padding: 30px 60px; /*///////////////////////////////////////*/
+    padding: 15px 30px; /* Уменьшено в 2 раза */
     border: none;
-    border-radius: 20px;  /*///////////////////////////////////////*/
-    font-size: 1em;
+    border-radius: 10px; /* Уменьшено в 2 раза */
+    font-size: 1em; /* Уменьшено в 2 раза */
+    font-weight: bold;
     cursor: pointer;
     transition: transform 0.2s, background-color 0.2s;
-    text-shadow: 2px 2px 5px black;
+    text-shadow: 1px 1px 2.5px black; /* Уменьшено в 2 раза */
     text-align: center;
 }
 
@@ -58,13 +67,13 @@ body {
 /* Блок отображения заданий */
 .challenge-display {
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 40px;
-    margin-top: 20px;
-    border-radius: 10px;
+    padding: 20px; /* Уменьшено в 2 раза */
+    margin-top: 10px; /* Уменьшено в 2 раза */
+    border-radius: 5px; /* Уменьшено в 2 раза */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* Отступ между элементами */
+    gap: 0px; /* Уменьшено в 2 раза */
 }
 
 .hidden {
@@ -74,29 +83,29 @@ body {
 #challenge-list {
     list-style-type: none;
     padding: 0;
-    margin: 20px 0;
-    font-size: 1.2em;
+    margin: 10px 0; /* Уменьшено в 2 раза */
+    font-size: 1em; /* Уменьшено в 2 раза */
 }
 
 #challenge-list li {
-    margin: 40px 0;
+    margin: 20px 0; /* Уменьшено в 2 раза */
 }
 
 /* Кнопки Random и Close */
 .challenge-display .buttons {
     display: flex;
-    gap: 10px; /* Отступ между кнопками */
+    gap: 5px; /* Уменьшено в 2 раза */
     justify-content: center;
-    flex-wrap: wrap; /* На случай, если места мало */
+    flex-wrap: wrap;
 }
 
 .random-btn, .close-btn {
     background-color: #f44336;
     color: white;
-    padding: 10px 20px;
+    padding: 5px 10px; /* Уменьшено в 2 раза */
     border: none;
-    border-radius: 8px;
-    font-size: 1.2em;
+    border-radius: 4px; /* Уменьшено в 2 раза */
+    font-size: 1em; /* Уменьшено в 2 раза */
     cursor: pointer;
     transition: background-color 0.2s;
 }
@@ -105,74 +114,24 @@ body {
     background-color: #d32f2f;
 }
 
-/* Общий контейнер */
-.container {
-    position: relative;
-    display: inline-block; /* Чтобы текст и картинка обрабатывались как единое целое */
-}
-
-/* Анимация увеличения и уменьшения */
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.2);
-    }
-}
-
-/* Основное изображение */
-.main-image {
-    width: auto;
-    height: 200px; /* Укажите нужный размер изображения */
-    display: block;
-}
-
-/* Общие стили */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    color: white;
-    text-align: center;
-    background: url('../images/mine.jpg') no-repeat center center fixed;
-    background-size: cover;
-    user-select: none; /* Запрещаем выделение текста */
-}
-
-/* Запрет перетаскивания изображений */
-img {
-    pointer-events: none; /* Отключает любые взаимодействия с изображением */
-    user-select: none;    /* Запрещает выделение изображения */
-}
-
-/* Контейнер */
-.container {
-    max-width: 1200px;
-    margin-top: 100px; /* Измените это значение */
-    margin-left: 100px; /* Измените это значение */
-    padding: 20px;
-    position: relative; /* Позволяет позиционировать внутренние элементы */
-}
-
 /* Текст "Minecraft style!" */
 #animation {
+    font-size: 40px; /* Уменьшено в 2 раза */
+    position: relative;
+    left: 25%; /* Уменьшено в 2 раза */
+    top: -5%; /* Уменьшено в 2 раза */
+    transform: translateX(-50%) rotate(15deg);
+    margin-top: -100px; /* Уменьшено в 2 раза */
+    color: #f7f700;
+    text-shadow: 1px 1px 0.5px #3f3f00; /* Уменьшено в 2 раза */
+    animation: pulse 2s infinite;
+    /* Текст "Minecraft style!" */
     display: block;
     height: 10px;
     width: auto;
-    font-family: 'Arial';
-    font-size: 60px;
-    position: absolute;
-    left: 65%;
-    top: -25%;
-    transform: translateX(150%) rotate(15deg); /* Поворот в другую сторону */
-    margin-top: 220px; /* Смещаем ниже картинки */
-    color: #f7f700;
-    text-shadow: 2px 2px 1px #3f3f00;
     text-decoration: none;
     pointer-events: none; /* Отключает взаимодействие с текстом */
     user-select: none; /* Отключает выделение текста */
-    animation: pulse 2s infinite;
 }
 
 /* Анимация увеличения и уменьшения */
@@ -181,91 +140,43 @@ img {
         transform: rotate(-20deg) scale(1);
     }
     50% {
-        transform: rotate(-20deg) scale(1.2);
+        transform: rotate(-20deg) scale(1.1); /* Уменьшено масштабирование */
     }
 }
 
 /* Основное изображение */
 .main-image {
-    width: auto;
-    height: 200px; /* Укажите нужный размер изображения */
+    height: 200px; /* Уменьшено в 2 раза */
     display: block;
 }
 
-/* Анимация, когда задание открыто */
-@keyframes moveAnimation {
-    0% {
-        transform: rotate(-20deg) scale(1) translateY(0); /* Изначальная позиция */
-    }
-    50% {
-        transform: rotate(-20deg) scale(1.2) translateY(-50px); /* Поднимем текст вверх */
-    }
-    100% {
-        transform: rotate(-20deg) scale(1) translateY(0); /* Возвращаем в исходное положение */
-    }
-}
-
-#animation {
-    position: absolute;
-    top: -125px;
-    left: 800px;
-    font-family: 'Arial', sans-serif;
-    font-size: 60px;
-    color: #f7f700;
-    text-shadow: 4px 4px 2px #3f3f00;
-    animation: pulse 2s infinite; /* Стандартная анимация */
-    transition: transform 0.5s ease-out; /* Плавное изменение позиции */
-}
-
-/* Когда открывается задание */
-.challenge-display.open #animation {
-    animation: moveAnimation 1s forwards; /* Запуск анимации при открытии задания */
-}
-
 /* Стили для фотографий в уровне Йога */
 .yoga-images {
     display: flex;
     justify-content: center;
-    gap: 15px; /* Отступ между изображениями */
-    margin-bottom: 20px;
-    flex-wrap: wrap; /* Позволяет изображениям адаптироваться при уменьшении ширины экрана */
+    gap: 7.5px; /* Уменьшено в 2 раза */
+    margin-bottom: 1px; /* Уменьшено в 2 раза */
+    flex-wrap: wrap;
 }
 
 .yoga-images img {
-    width: 150px; /* Размер изображения */
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Тень для изображения */
-    transition: transform 0.3s ease;
-}
-
-/* Стили для фотографий в уровне Йога */
-.yoga-images {
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Отступ между изображениями */
-    margin-bottom: 20px;
-    flex-wrap: wrap; /* Позволяет изображениям адаптироваться при уменьшении ширины экрана */
-}
-
-.yoga-images img {
-    width: 250px; /* Размер изображения */
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Тень для изображения */
+    width: 125px; /* Уменьшено в 2 раза */
+    border-radius: 5px; /* Уменьшено в 2 раза */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Уменьшено в 2 раза */
     transition: transform 0.3s ease;
 }
 
 /* Стили для случайной картинки при нажатии на кнопку Random */
 .random-image {
-    width: 250px;
-    height: 250px;
-    margin-top: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 125px; /* Уменьшено в 2 раза */
+    height: 125px; /* Уменьшено в 2 раза */
+    margin-top: 10px; /* Уменьшено в 2 раза */
+    border-radius: 5px; /* Уменьшено в 2 раза */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Уменьшено в 2 раза */
     transition: transform 0.3s ease;
 }
 
+#challenges{
+    font-size: 1.2em;
+    font-weight: bold;
+}
