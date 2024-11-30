@@ -155,7 +155,6 @@ img {
     display: flex;
     justify-content: center;
     gap: 7.5px; /* Уменьшено в 2 раза */
-    margin-bottom: 1px; /* Уменьшено в 2 раза */
     flex-wrap: wrap;
 }
 
