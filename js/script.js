@@ -144,7 +144,6 @@ const levels = [
     }
 ];
 
-
 let currentLevel = null; // Переменная для хранения текущего выбранного уровня
 
 // Массив путей к картинкам для уровня "Йога"
@@ -157,23 +156,30 @@ const yogaImages = [
 
 let yogaImagesContainer = null;  // Контейнер для изображений
 
-// Функция для добавления картинок
-function addYogaImages() {
-    // Проверяем, если изображения еще не добавлены
+// Функция для добавления или обновления картинок
+function updateYogaImages(showRandom = false) {
     if (!yogaImagesContainer) {
         yogaImagesContainer = document.createElement('div');
         yogaImagesContainer.classList.add('yoga-images');
+        challengeDisplay.insertBefore(yogaImagesContainer, challengeList);
+    } else {
+        yogaImagesContainer.innerHTML = ''; // Очищаем контейнер, если он уже существует
+    }
 
-        // Добавляем все изображения в контейнер
+    if (showRandom) {
+        const randomImageSrc = yogaImages[Math.floor(Math.random() * yogaImages.length)];
+        const randomImage = document.createElement('img');
+        randomImage.src = randomImageSrc;
+        randomImage.alt = 'Случайная картинка йоги';
+        randomImage.classList.add('random-image');
+        yogaImagesContainer.appendChild(randomImage);
+    } else {
         yogaImages.forEach(imageSrc => {
             const image = document.createElement('img');
             image.src = imageSrc;
             image.alt = 'Йога изображение';
             yogaImagesContainer.appendChild(image);
         });
-
-        // Вставляем контейнер с изображениями перед списком заданий
-        challengeDisplay.insertBefore(yogaImagesContainer, challengeList);
     }
 }
 
@@ -210,15 +216,7 @@ function showRandomChallenge() {
         challengeList.innerHTML = `<li>${randomTask}</li>`;
         // Если уровень "Йога", показываем случайную картинку
         if (currentLevel.name === 'Йога') {
-            // Показываем одну случайную картинку из массива
-            const randomImageSrc = yogaImages[Math.floor(Math.random() * yogaImages.length)];
-            const randomImage = document.createElement('img');
-            randomImage.src = randomImageSrc;
-            randomImage.alt = 'Случайная картинка йоги';
-            randomImage.classList.add('random-image');  // Добавляем класс для стилизации
-
-            // Добавляем картинку на страницу
-            challengeList.appendChild(randomImage);
+            updateYogaImages(true); // Показываем случайное изображение
         }
     } else {
         alert("Please select a level first!"); // Если уровень не выбран, показываем предупреждение
@@ -230,7 +228,7 @@ function showChallengeList(tasks) {
     challengeList.innerHTML = '';  // Очищаем предыдущие задания
     // Если это уровень "Йога", добавляем изображения
     if (currentLevel && currentLevel.name === 'Йога') {
-        addYogaImages();  // Добавляем картинки, если еще не добавлены
+        updateYogaImages();  // Добавляем картинки
     } else {
         removeYogaImages();  // Убираем картинки, если это не уровень "Йога"
     }
@@ -255,7 +253,6 @@ closeButton.addEventListener('click', () => {
     challengeDisplay.classList.remove('open'); // Убираем класс .open, чтобы анимация вернулась в исходное состояние
     removeYogaImages();  // Убираем изображения при закрытии
 });
-
 
 // Инициализация кнопок
 createLevelButtons();
