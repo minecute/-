@@ -161,6 +161,7 @@ img {
 
 .yoga-images img {
     width: 125px; /* Уменьшено в 2 раза */
+    height: 125px; /* Уменьшено в 2 раза */
     border-radius: 5px; /* Уменьшено в 2 раза */
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Уменьшено в 2 раза */
     transition: transform 0.3s ease;
